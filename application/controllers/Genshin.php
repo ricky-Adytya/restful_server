@@ -21,9 +21,9 @@ class Genshin extends RestController {
             $p = $this->get('page');
             $p = (empty($p)? 1 : $p);
             $total_data=$this->m_genshin->count();
-            $total_page = ceil($total_data /5);
-            $start = ($p - 1)*5;
-            $list = $this->m_genshin->get(null,5,$start);
+            $total_page = ceil($total_data /10);
+            $start = ($p - 1)*10;
+            $list = $this->m_genshin->get(null,10,$start);
             if ($list) {
             $data = [
                 'status'=> true,

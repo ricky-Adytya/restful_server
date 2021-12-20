@@ -22,6 +22,30 @@ class m_genshin extends CI_Model
     }
   }
 
+  public function get_pria($id = null, $limit = 5, $offset =0)
+  {
+    if ($id === null){
+      return $this->db->get_where('char_genshin', ['Gender' => 'Male'],$limit,$offset)->result();
+    }
+    else{
+      return $this->db->get_where('char_genshin',['Nama' => $id])->result_array();
+    }
+  }
+
+  public function get_wanita($id = null, $limit = 5, $offset =0)
+  {
+    if ($id === null){
+      return $this->db->get_where('char_genshin', ['Gender' => 'Female'],$limit,$offset)->result();
+    }
+    else{
+      return $this->db->get_where('char_genshin',['Nama' => $id])->result_array();
+    }
+  }
+
+
+
+
+
   public function count()
   {
       return $this->db->get('char_genshin')->num_rows();
